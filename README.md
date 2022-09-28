@@ -1,4 +1,4 @@
-# DevConnector 2.0
+#Pic Me 2.0
 
 > Social network for developers
 
