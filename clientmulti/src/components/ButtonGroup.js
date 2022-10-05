@@ -84,7 +84,8 @@ const ButtonGroup = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    padding: 5,
   },
   ButtonGroup: {
     flexDirection: 'row',
@@ -97,7 +98,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5
   },
   btn: {
-    flex: 1,
     borderRightWidth: 2,
     borderLeftWidth: 2,
     borderTopWidth: 2,
@@ -107,12 +107,14 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 5,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    width: '20%'
   },
   btnText: {
     textAlign: 'center',
     paddingVertical: 10,
-    fontSize: 10
+    fontSize: 10,
+    
   }
 });
 

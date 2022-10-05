@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ViewBoxesWithColorAndText from './components/ViewBoxesWithColorAndText';
 import SeperateComponent from './components/SeperateComponent';
+import FlexDirectionBasics from './components/FlexDirectionBasics';
 
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
@@ -52,6 +53,11 @@ function HomeScreen({ navigation }) {
         <Button
           title="Redux"
           onPress={() => navigation.navigate('Redux')}
+          style={styles.buttons}
+        />
+                <Button
+          title="Flex"
+          onPress={() => navigation.navigate('Flex')}
           style={styles.buttons}
         />
       </ImageBackground>
@@ -120,6 +126,7 @@ function App() {
           <Stack.Screen name="Home2" component={Home} />
           <Stack.Screen name="Separate" component={SeperateComponent} />
           <Stack.Screen name="Redux" component={ReduxChecker} />
+          <Stack.Screen name="Flex" component={FlexDirectionBasics} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
