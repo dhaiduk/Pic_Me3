@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   View,
@@ -18,14 +19,42 @@ import { store } from './redux/store';
 import ButtonGroup from './components/ButtonGroup';
 import ReduxChecker from './components/ReduxChecker';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const image = './images/sports-tools.jpg';
 
 import Home from './components/Home';
+const storeData = async (value) => {
+  try {
+    await AsyncStorage.setItem('@storage_Key', value);
+  } catch (e) {
+    // saving error
+  }
+};
 
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('@storage_Key');
+    if (value !== null) {
+      // value previously stored
+      alert(value);
+    }
+  } catch (e) {
+    // error reading value
+  }
+};
 function HomeScreen({ navigation }) {
+  const [count, setCount] = useState(null);
+  useEffect(() => {
+    storeData('hi');
+    alert(getData());
+  });
+
+
   return (
     <View style={{ flex: 1 }}>
-      <ViewBoxesWithColorAndText />
+      {/*
+      <ViewBoxesWithColorAndText />*/}
       <ImageBackground
         source={require('./images/sports-tools.jpg')}
         resizeMode="cover"
@@ -55,7 +84,7 @@ function HomeScreen({ navigation }) {
           onPress={() => navigation.navigate('Redux')}
           style={styles.buttons}
         />
-                <Button
+        <Button
           title="Flex"
           onPress={() => navigation.navigate('Flex')}
           style={styles.buttons}
