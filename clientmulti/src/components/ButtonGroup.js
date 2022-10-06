@@ -16,7 +16,7 @@ const ButtonGroup = () => {
         <TouchableOpacity
           style={[
             styles.btn,
-            selection === 1 ? { backgroundColor: '#6B7280' } : null
+            selection === 1 ? { backgroundColor: 'grey' } : null
           ]}
           onPress={() => setSelection(1)}
         >
@@ -26,13 +26,13 @@ const ButtonGroup = () => {
               selection === 1 ? { color: 'white' } : null
             ]}
           >
-            Button 1
+            Players
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.btn,
-            selection === 2 ? { backgroundColor: '#6B7280' } : null
+            selection === 2 ? { backgroundColor: 'grey' } : null
           ]}
           onPress={() => setSelection(2)}
         >
@@ -42,13 +42,13 @@ const ButtonGroup = () => {
               selection === 2 ? { color: 'white' } : null
             ]}
           >
-            Button 2
+            Register
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.btn,
-            selection === 3 ? { backgroundColor: '#6B7280' } : null
+            selection === 3 ? { backgroundColor: 'grey' } : null
           ]}
           onPress={() => setSelection(3)}
         >
@@ -58,23 +58,7 @@ const ButtonGroup = () => {
               selection === 3 ? { color: 'white' } : null
             ]}
           >
-            Button 3
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.btn,
-            selection === 4 ? { backgroundColor: '#6B7280' } : null
-          ]}
-          onPress={() => setSelection(4)}
-        >
-          <Text
-            style={[
-              styles.btnText,
-              selection === 4 ? { color: 'white' } : null
-            ]}
-          >
-            Button 4
+            Login
           </Text>
         </TouchableOpacity>
       </View>
@@ -91,29 +75,31 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     //borderBottomWidth: 5,
-    borderBottomColor: '#6B7280',
+    borderBottomColor: 'grey',
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5
+    borderBottomRightRadius: 5,
   },
   btn: {
     borderRightWidth: 2,
     borderLeftWidth: 2,
     borderTopWidth: 2,
     borderBottomWidth: 2,
-    borderColor: '#6B7280',
+    borderColor: 'grey',
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    backgroundColor: 'green',
-    width: '20%'
+    backgroundColor: 'white',
+    marginHorizontal: 5,
+
   },
   btnText: {
     textAlign: 'center',
     paddingVertical: 10,
-    fontSize: 10,
+    fontSize: 12,
+    padding: 10
     
   }
 });

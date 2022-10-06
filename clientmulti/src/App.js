@@ -114,7 +114,7 @@ function App() {
                 </View>
               ),
               headerStyle: {
-                backgroundColor: '#00FFFF'
+                backgroundColor: '#D3D3D3'
               },
               headerTintColor: '#fff',
               headerTitleStyle: {
