@@ -76,8 +76,9 @@ function DetailsScreen() {
 function LogoTitle() {
   return (
     <Image
-      style={{ width: 30, height: 30 }}
+      style={{ width: 30, height: 30, marginLeft: 10 }}
       source={require('./images/logo.png')}
+      ma
     />
   );
 }
