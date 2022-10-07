@@ -11,16 +11,20 @@ import {
 
 const buttons = [
   {
-    name: 'Name'
+    name: 'name',
+    describe: 'Name'
   },
   {
-    name: 'Email Address'
+    name: 'email',
+    describe: 'Email Address'
   },
   {
-    name: 'Password'
+    name: 'password',
+    describe: 'Password'
   },
   {
-    name: 'Confirm Password'
+    name: 'password2',
+    describe: 'Confirm Password'
   }
 ];
 
@@ -41,19 +45,23 @@ const Register = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onChangeTest = (name, value) => console.log(name, value);
+  const onChangeTest = (name, value) => {
+    console.log(name, value);
+    setFormData({ ...formData, [name]: value });
+    console.log(formData);
+  };
   return (
     <View style={styles.container}>
       {buttons.map((button) => (
         <View key={button.name + 'view'}>
-          <Text style={styles.title} key={button.name + 'text'}>
-            {button.name}
+          <Text style={styles.title} key={button.describe + 'title'}>
+            {button.describe}
           </Text>
           <TextInput
             style={styles.input}
             onChangeText={(value) => onChangeTest(button.name, value)}
             placeholder={button.name}
-            value={text}
+            value={formData[button.name]}
             key={button.name}
           />
         </View>
