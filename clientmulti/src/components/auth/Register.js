@@ -29,7 +29,19 @@ const Separator = () => <View style={styles.separator} />;
 const Register = () => {
   const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
 
+  const { name, email, password, password2 } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onChangeTest = (name, value) => console.log(name, value);
   return (
     <View style={styles.container}>
       {buttons.map((button) => (
@@ -39,7 +51,7 @@ const Register = () => {
           </Text>
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
+            onChangeText={(value) => onChangeTest(button.name, value)}
             placeholder={button.name}
             value={text}
             key={button.name}
