@@ -31,21 +31,16 @@ const buttons = [
 const Separator = () => <View style={styles.separator} />;
 
 const Register = () => {
-  const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: ''
   });
-
   const { name, email, password, password2 } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const onChangeTest = (name, value) => {
+  const onChange = (name, value) => {
     console.log(name, value);
     setFormData({ ...formData, [name]: value });
     console.log(formData);
@@ -59,7 +54,7 @@ const Register = () => {
           </Text>
           <TextInput
             style={styles.input}
-            onChangeText={(value) => onChangeTest(button.name, value)}
+            onChangeText={(value) => onChange(button.name, value)}
             placeholder={button.name}
             value={formData[button.name]}
             key={button.name}
