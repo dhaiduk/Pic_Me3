@@ -31,16 +31,20 @@ const Register = () => {
   const [number, onChangeNumber] = React.useState(null);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {buttons.map((button) => (
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          placeholder={button.name}
-          value={text}
-          r
-          key={button.name}
-        />
+        <View key={button.name + 'view'}>
+          <Text style={styles.title} key={button.name + 'text'}>
+            {button.name}
+          </Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeText}
+            placeholder={button.name}
+            value={text}
+            key={button.name}
+          />
+        </View>
       ))}
       <Button
         title="Register"
@@ -48,7 +52,7 @@ const Register = () => {
         style={styles.buttons}
         key="register"
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
