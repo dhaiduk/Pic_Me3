@@ -19,6 +19,8 @@ import { store } from './redux/store';
 import ButtonGroup from './components/ButtonGroup';
 import ReduxChecker from './components/ReduxChecker';
 
+import Register from './components/auth/Register';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const image = './images/sports-tools.jpg';
@@ -89,6 +91,11 @@ function HomeScreen({ navigation }) {
           onPress={() => navigation.navigate('Flex')}
           style={styles.buttons}
         />
+        <Button
+          title="Register"
+          onPress={() => navigation.navigate('Register')}
+          style={styles.buttons}
+        />
       </ImageBackground>
     </View>
   );
@@ -157,6 +164,8 @@ function App() {
           <Stack.Screen name="Separate" component={SeperateComponent} />
           <Stack.Screen name="Redux" component={ReduxChecker} />
           <Stack.Screen name="Flex" component={FlexDirectionBasics} />
+          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="login" component={FlexDirectionBasics} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
