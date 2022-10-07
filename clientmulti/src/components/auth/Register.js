@@ -1,27 +1,53 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Text,
+  Button
+} from 'react-native';
 
+const buttons = [
+  {
+    name: 'Name'
+  },
+  {
+    name: 'Email Address'
+  },
+  {
+    name: 'Password'
+  },
+  {
+    name: 'Confirm Password'
+  }
+];
 
+const Separator = () => <View style={styles.separator} />;
 
 const Register = () => {
-  const [text, onChangeText] = React.useState("Useless Text");
+  const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState(null);
-  
 
   return (
     <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
+      {buttons.map((button) => (
+        <View>
+          <Text style={styles.title}>{button.name}</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeText}
+            placeholder={button.name}
+            value={text}
+          />
+          <Separator />
+        </View>
+      ))}
+      <Button
+        title="Register"
+        onPress={() => navigation.navigate('Register')}
+        style={styles.buttons}
       />
     </SafeAreaView>
   );
@@ -32,12 +58,28 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
-    padding: 10,
+    padding: 10
   },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  separator: {
+    marginVertical: 5,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  buttons: {
+    marginVertical: 8,
+    marginHorizontal: 16
+  }
 });
 
 export default Register;
-
 
 /*import React, { useState } from 'react';
 import { connect } from 'react-redux';
