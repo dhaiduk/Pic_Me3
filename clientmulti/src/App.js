@@ -39,7 +39,7 @@ const getData = async () => {
     const value = await AsyncStorage.getItem('@storage_Key');
     if (value !== null) {
       // value previously stored
-      alert(value);
+      console.log(value);
     }
   } catch (e) {
     // error reading value
@@ -49,7 +49,7 @@ function HomeScreen({ navigation }) {
   const [count, setCount] = useState(null);
   useEffect(() => {
     storeData('hi');
-    alert(getData());
+    getData();
   });
 
 

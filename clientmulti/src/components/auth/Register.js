@@ -31,34 +31,39 @@ const Register = () => {
   const [number, onChangeNumber] = React.useState(null);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       {buttons.map((button) => (
-        <View>
-          <Text style={styles.title}>{button.name}</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeText}
-            placeholder={button.name}
-            value={text}
-          />
-          <Separator />
-        </View>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          placeholder={button.name}
+          value={text}
+          r
+          key={button.name}
+        />
       ))}
       <Button
         title="Register"
         onPress={() => navigation.navigate('Register')}
         style={styles.buttons}
+        key="register"
       />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
-    padding: 10
+    padding: 10,
+    width: 200
   },
   title: {
     textAlign: 'center',
