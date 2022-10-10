@@ -15,7 +15,10 @@ import SeperateComponent from './components/SeperateComponent';
 import FlexDirectionBasics from './components/FlexDirectionBasics';
 
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+
+import { PersistGate } from 'redux-persist/integration/react';
+
+import store, {  persistor } from './store';
 import ButtonGroup from './components/ButtonGroup';
 import ReduxChecker from './components/ReduxChecker';
 
@@ -51,7 +54,6 @@ function HomeScreen({ navigation }) {
     storeData('hi');
     getData();
   });
-
 
   return (
     <View style={{ flex: 1 }}>
@@ -124,17 +126,18 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              headerTitle: () => {},
-              headerLeft: (props) => <LogoTitle {...props} />,
-              headerRight: () => (
-                <View style={[styles.horizontal]}>
-                  {/*
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{
+                headerTitle: () => {},
+                headerLeft: (props) => <LogoTitle {...props} />,
+                headerRight: () => (
+                  <View style={[styles.horizontal]}>
+                    {/*
                   <Button
                     onPress={() => alert('This is a button!')}
                     title="Players"
@@ -147,27 +150,28 @@ function App() {
                     onPress={() => alert('This is a button!')}
                     title="Login"
                   />*/}
-                  <ButtonGroup />
-                </View>
-              ),
-              headerStyle: {
-                backgroundColor: '#D3D3D3'
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold'
-              }
-            }}
-          />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-          <Stack.Screen name="Home2" component={Home} />
-          <Stack.Screen name="Separate" component={SeperateComponent} />
-          <Stack.Screen name="Redux" component={ReduxChecker} />
-          <Stack.Screen name="Flex" component={FlexDirectionBasics} />
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="login" component={FlexDirectionBasics} />
-        </Stack.Navigator>
-      </NavigationContainer>
+                    <ButtonGroup />
+                  </View>
+                ),
+                headerStyle: {
+                  backgroundColor: '#D3D3D3'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold'
+                }
+              }}
+            />
+            <Stack.Screen name="Details" component={DetailsScreen} />
+            <Stack.Screen name="Home2" component={Home} />
+            <Stack.Screen name="Separate" component={SeperateComponent} />
+            <Stack.Screen name="Redux" component={ReduxChecker} />
+            <Stack.Screen name="Flex" component={FlexDirectionBasics} />
+            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="login" component={FlexDirectionBasics} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }

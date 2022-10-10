@@ -8,6 +8,8 @@ import {
   Text,
   Button
 } from 'react-native';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
 const buttons = [
   {
@@ -30,8 +32,10 @@ const buttons = [
 
 const Separator = () => <View style={styles.separator} />;
 
-const Register = () => {
+const Register = (props) => {
 
+  const { navigation } = props;
+  console.log(props)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,6 +49,16 @@ const Register = () => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
+  
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (password !== password2) {
+      setAlert('Passwords do not match', 'danger');
+    } else {
+      register({ name, email, password });
+    }
+  };
+
   return (
     <View style={styles.container}>
       {buttons.map((button) => (
@@ -63,7 +77,7 @@ const Register = () => {
       ))}
       <Button
         title="Register"
-        onPress={() => navigation.navigate('Register')}
+        onPress={() => navigation.navigate('Home')}
         style={styles.buttons}
         key="register"
       />
