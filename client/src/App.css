@@ -289,6 +289,24 @@ button {
   color: #0077b5;
 }
 
+.fa-pic-me:before {
+  background-image: url(./img/logo.png);
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px; 
+  height: 20px;
+  content:"";
+}
+
+.fa-pic-me-large:before {
+  background-image: url(./img/logo.png);
+  background-size: 100px 100px;
+  display: inline-block;
+  width: 100px; 
+  height: 100px;
+  content:"";
+}
+
 .table th,
 .table td {
   padding: 1rem;

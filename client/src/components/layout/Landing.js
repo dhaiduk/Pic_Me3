@@ -12,9 +12,9 @@ const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">Pic Me</h1>
+          <h1 className="x-large"><i className="fas fa-pic-me-large" aria-hidden="true"/></h1>
           <p className="lead">
-          Create a Pic Me profile/portfolio, share posts and get suggestions from other members.
+          Manage your Sporting profile, Build you highlights and successes. Share videos, images and stats. Get worldwide exposure and opportunities.
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
