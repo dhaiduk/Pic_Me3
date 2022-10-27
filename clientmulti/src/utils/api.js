@@ -4,7 +4,8 @@ import { LOGOUT } from '../actions/types';
 
 // Create an instance of axios
 const api = axios.create({
-  baseURL: '/api',
+  //baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://192.168.8.170:5000/api',
   headers: {
     'Content-Type': 'application/json'
   }
@@ -16,7 +17,6 @@ const api = axios.create({
  authenticated.
  logout the user if the token has expired
 */
-
 api.interceptors.response.use(
   (res) => res,
   (err) => {

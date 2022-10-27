@@ -35,7 +35,7 @@ const Separator = () => <View style={styles.separator} />;
 const Register = (props) => {
 
   const { navigation } = props;
-  console.log(props)
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,12 +51,18 @@ const Register = (props) => {
   };
   
   const onSubmit = async (e) => {
-    e.preventDefault();
+
+    console.log(name, email, password)
+    register({ name, email, password });
+    navigation.navigate('Home');
+    /*
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
       register({ name, email, password });
     }
+    */
+
   };
 
   return (
@@ -77,7 +83,7 @@ const Register = (props) => {
       ))}
       <Button
         title="Register"
-        onPress={() => navigation.navigate('Home')}
+        onPress={onSubmit}
         style={styles.buttons}
         key="register"
       />

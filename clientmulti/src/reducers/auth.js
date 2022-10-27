@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   REGISTER_SUCCESS,
   //REGISTER_FAIL,
@@ -10,7 +11,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: AsyncStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
   user: null
