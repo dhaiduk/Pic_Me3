@@ -20,6 +20,7 @@ import {
 // Load User
 export const loadUser = () => async (dispatch) => {
   try {
+    console.log("res")
     const res = await api.get('/auth');
 
     dispatch({
